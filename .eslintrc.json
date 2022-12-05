@@ -42,7 +42,7 @@
             "pathGroups": [
               {
                 "pattern": "(@angular|rxjs)**",
-                "group": "external"
+                "group": "builtin"
               },
               {
                 "pattern": ".**",
