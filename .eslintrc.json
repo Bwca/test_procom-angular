@@ -8,8 +8,11 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/typescript",
+        "plugin:import/warnings"
       ],
+      "plugins": ["import"],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -26,9 +29,31 @@
             "prefix": "app",
             "style": "kebab-case"
           }
+        ],
+        "import/order": [
+          "warn",
+          {
+            "groups": ["builtin", "external", "internal"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "pathGroups": [
+              {
+                "pattern": "(@angular|rxjs)**",
+                "group": "external"
+              },
+              {
+                "pattern": ".**",
+                "group": "internal"
+              }
+            ]
+          }
         ]
       }
     },
+
     {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
