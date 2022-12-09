@@ -1,0 +1,8 @@
+<article>
+  <input [formControl]="searchControl" />
+  <select [multiple]="isMultiple" [formControl]="select" size="4">
+    <ng-container *ngFor="let option of relevantOptions$ | async">
+      <option [value]="option">{{ option.value }}</option>
+    </ng-container>
+  </select>
+</article>
